@@ -1,5 +1,5 @@
 #!/bin/bash
-PTH="/home/anant/Windows/OFFICE"
+PTH="/home/user/Windows/OFFICE"
 if [ $# -gt 0 ]
 then
 
