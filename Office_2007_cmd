@@ -1,0 +1,34 @@
+#!/bin/bash
+PTH="/home/anant/Windows/OFFICE"
+if [ $# -gt 0 ]
+then
+
+	if [ $1 = "trick" ] 
+	then
+		shift	
+		WINEPREFIX=$PTH winetricks $*
+	elif [ $1 = "word" -o $1 = "doc" ]
+	then
+		shift
+		WINEPREFIX=$PTH wine "c:\\Program Files\\Microsoft Office\\Office12\\WINWORD.exe" $*
+	elif [ $1 = "ppt" -o $1 = "powerpoint" ]
+	then
+		shift
+		WINEPREFIX=$PTH wine "c:\\Program Files\\Microsoft Office\\Office12\\POWERPNT.EXE" $*
+	elif [ $1 = "excel" -o $1 = "xls" ]
+	then
+		shift
+		WINEPREFIX=$PTH wine "c:\\Program Files\\Microsoft Office\\Office12\\EXCEL.EXE" $*
+	elif [ $1 = "publish" -o $1 = "pub" ]
+	then
+		shift
+		WINEPREFIX=$PTH wine "c:\\Program Files\\Microsoft Office\\Office12\\MSPUB.EXE" $*
+	elif [ $1 = "help" -o $1 = "-help" -o $1 = "--help" ]
+	then
+		echo "$0 [trick|word|ppt|excel|other commands]"
+	else
+		WINEPREFIX=$PTH wine $*
+	fi
+else
+	echo "$0 [trick|word|ppt|excel|other commands]"
+fi
